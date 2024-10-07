@@ -1,11 +1,12 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../models/country.model';
+import { CountryCardComponent } from "../../components/country-card/country-card.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CountryCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
