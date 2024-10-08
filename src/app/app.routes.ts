@@ -9,6 +9,14 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () => import('./pages/home/home.component').then(c => c.HomeComponent)
+      },
+      {
+        path: 'country/:name',
+        loadComponent: () => import('./pages/country-detail/country-detail.component').then(c => c.CountryDetailComponent)
+      },
+      {
+        path: 'region/:region',
+        loadComponent: () => import('./pages/home/home.component').then(c => c.HomeComponent)
       }
     ]
   }

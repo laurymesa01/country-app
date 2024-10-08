@@ -12,7 +12,9 @@
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
         @for (region of regions | keyvalue; track $index) {
           <li class="text-dark-blue mb-2">
-            {{region.value}}
+            <a [routerLink]="['region', region.value]">
+              {{region.value}}
+            </a>
           </li>
         }
       </ul>
