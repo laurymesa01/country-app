@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit{
   ngOnInit(){
     this.country_service.getCountries().subscribe({
       next: (countries) => {
-        console.log('CO',countries);
         this.countries.set(countries)
       }
     })
