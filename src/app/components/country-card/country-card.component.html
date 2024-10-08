@@ -1,10 +1,16 @@
-<section class="bg-white shadow-2xl rounded h-[360px]" [style]="{ width: '300px' }">
+<section class="bg-white shadow-2xl rounded h-[360px] cursor-pointer" [style]="{ width: '300px' }">
   <img [src]="country.flags.png" alt="" class="w-full rounded-t object-fill h-[45%]">
   <div class="px-8 py-4 ">
-    <h4 class="mb-4">{{country.name.official}}</h4>
-    <p>Population: {{country.population}}</p>
-    <p>Region: {{country.region}}</p>
-    <p>Capital: {{country.capital}}</p>
+    <h4 class="mb-4 text-[18px] leading-[26px] font-extrabold">{{country.name.official}}</h4>
+    <p class="font-semibold text-[14px] leading-[16px] mb-2">Population:
+      <span class="font-light">{{country.population}}</span>
+    </p>
+    <p class="font-semibold text-[14px] leading-[16px] mb-2">Region:
+      <span class="font-light">{{country.region}}</span>
+    </p>
+    <p class="font-semibold text-[14px] leading-[16px] mb-2">Capital:
+      <span class="font-light">{{country.capital}}</span>
+    </p>
   </div>
 
 </section>
