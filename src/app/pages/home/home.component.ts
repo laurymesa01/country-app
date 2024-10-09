@@ -37,7 +37,11 @@ export class HomeComponent implements OnInit{
         }
       })
     ).subscribe({
-      next: (countries) => this.countries.set(countries)
+      next: (countries) => this.countries.set(countries),
+      error: (err: HttpErrorResponse) => {
+        this.isError = true;
+        this.errorMessage = err;
+      }
     })
   }
 
