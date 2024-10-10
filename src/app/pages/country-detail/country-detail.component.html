@@ -1,5 +1,7 @@
-<section class="bg-white p-4 md:p-14 xl:p-24">
-  <button class="mb-8 lg:mb-20 text-[16px] leading-[20px] font-light">Back</button>
+<section class="bg-white p-4 md:p-14 xl:p-20">
+  <button class="mb-8 px-6 py-2 lg:mb-20 text-[16px] leading-[20px] font-light shadow-md lg:shadow-none" (click)="back()">
+    Back
+  </button>
   <div class="flex flex-col lg:flex-row items-start lg:items-center">
     <div class="w-full lg:w-[500px]">
       <img [src]="country().flags.png" alt="" class="rounded-md w-full lg:h-[390px] object-fill">

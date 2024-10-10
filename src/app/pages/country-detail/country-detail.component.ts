@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Country, Region, Name, Status, Side, StartOfWeek } from '../../models/country.model';
 import { switchMap } from 'rxjs';
 import { CountryService } from '../../services/country.service';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-country-detail',
@@ -50,7 +51,8 @@ export class CountryDetailComponent  implements OnInit{
     capitalInfo: {}
   })
   countries = signal<Country[]>([]);
-  private country_service = inject(CountryService)
+  private location  = inject(Location);
+  private country_service = inject(CountryService);
   private route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor(){}
@@ -100,6 +102,10 @@ export class CountryDetailComponent  implements OnInit{
     }
     this.countries().filter(c => this.country().borders!.includes(c.cca3) ? countryBorders.push(c.name.common) : null)
     return countryBorders;
+  }
+
+  back(){
+    this.location.back();
   }
 
 }
