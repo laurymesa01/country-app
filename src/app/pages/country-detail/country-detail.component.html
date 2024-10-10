@@ -1,29 +1,66 @@
-<section>
-  <div>
-    <button>Back</button>
-    <img src="" alt="">
-  </div>
-  <div>
-    <h1></h1>
-    <div>
-      <div>
-        <p>Native Name: </p>
-        <p>Population: </p>
-        <p>Region:</p>
-        <p>Sub Region:</p>
-        <p>Capital</p>
-      </div>
-      <div>
-        <p>Top Level Domain:</p>
-        <p>Currencies: </p>
-        <p>Languages:</p>
-      </div>
+<section class="bg-white p-4 md:p-14 xl:p-24">
+  <button class="mb-8 lg:mb-20 text-[16px] leading-[20px] font-light">Back</button>
+  <div class="flex flex-col lg:flex-row items-start lg:items-center">
+    <div class="w-full lg:w-[500px]">
+      <img [src]="country().flags.png" alt="" class="rounded-md w-full lg:h-[390px] object-fill">
     </div>
-    <div>
-      <p>Border Countries:</p>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div class="lg:ml-14 xl:ml-32 mt-8 lg:mt-0">
+      <h1 class="font-extrabold text-[22px] lg:text-[32px] mb-4">{{country().name.common}}</h1>
+      <div class="flex flex-col justify-start md:flex-row md:justify-between">
+        <div class="space-y-1">
+          @if (country().name.nativeName) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Native Name:
+              <span class="font-light ">{{getNativeName()}}</span>
+            </p>
+          }
+          <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Population:
+            <span class="font-light">{{country().population}}</span>
+          </p>
+          <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Region:
+            <span class="font-light">{{country().region}}</span>
+          </p>
+          @if (country().subregion) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Sub Region:
+              <span class="font-light">{{country().subregion}}</span>
+            </p>
+          }
+          @if (country().capital) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Capital:
+              <span class="font-light">{{country().capital}}</span>
+            </p>
+          }
+        </div>
+        <div class="space-y-1 mt-4 md:ml-4 md:mt-0 ">
+          @if (country().tld && country().tld?.length !== 0) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Top Level Domain:
+              <span class="font-light"> {{country().tld}}</span>
+            </p>
+          }
+          @if (getCurrencies() != null) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Currencies:
+              <span class="font-light">{{getCurrencies()}}</span>
+            </p>
+          }
+          @if (getLanguages() != null) {
+            <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Languages:
+              <span class="font-light">{{getLanguages()}}</span>
+            </p>
+          }
+
+        </div>
+      </div>
+      @if (getBorders() !== null) {
+        <div class="flex flex-col lg:flex-row mt-8 items-start">
+          <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Border Countries:</p>
+          <div class="lg:ml-2 grid grid-cols-2 gap-2 items-start  sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-row lg:items-center">
+            @for (border of getBorders(); track $index) {
+              <p class="shadow-lg w-28 py-2  text-center"> {{border}}</p>
+            }
+          </div>
+        </div>
+      }
+
     </div>
   </div>
+
 </section>

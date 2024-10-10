@@ -23,12 +23,12 @@ export class HomeComponent implements OnInit{
   errorMessage!: HttpErrorResponse;
   private country_service = inject(CountryService);
   countries = signal<Country[]>([]);
+
   constructor(private route: ActivatedRoute,){}
 
   ngOnInit(){
     this.route.params.pipe(
       switchMap(params => {
-        console.log('PARAMS',params)
         if (params['region']) {
           return this.country_service.getCountriesByRegion(params['region']);
         }

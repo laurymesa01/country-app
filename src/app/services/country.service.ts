@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { Country } from '../models/country.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class CountryService {
 
   private http = inject(HttpClient);
   private apiUrl = 'https://restcountries.com/v3.1';
-
+  private countriesList = signal<Country[]>([]);
   constructor() { }
 
   getCountries(){
@@ -22,6 +23,13 @@ export class CountryService {
 
   getCountriesByName(name: string){
     return this.http.get<Country[]>(`${this.apiUrl}/name/${name}`)
+  }
+
+  countries(){
+    this.getCountries().subscribe({
+      next: (countries) => this.countriesList.set(countries)
+    });
+    return this.countriesList();
   }
 
 }
