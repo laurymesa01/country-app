@@ -1,9 +1,12 @@
-<section class="bg-white p-4 md:p-14 xl:p-20 dark:bg-very-dark-blue-light dark:text-white">
-  <button class="mb-8 px-6 py-2 lg:mb-20 text-[16px] leading-[20px] font-light shadow-md rounded-md lg:shadow-none dark:bg-dark-blue dark:px-6 dark:py-2 dark:text-white" (click)="back()">
-    Back
+<section class="bg-white p-4 md:p-14 xl:p-20 dark:bg-very-dark-blue-dark dark:text-white">
+  <button class="flex items-center mb-8 px-6 py-2 lg:mb-20 text-[16px] leading-[20px] font-light shadow-lg rounded-sm lg:shadow-none dark:bg-dark-blue dark:px-6 dark:py-2 dark:text-white hover:scale-105 duration-300 transition-scale ease" (click)="back()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="18" height="18">
+      <path class="dark:fill-very-light-gray" fill="#232326" d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" data-name="Left"/>
+    </svg>
+    <span class="ml-2">Back</span>
   </button>
   <div class="flex flex-col lg:flex-row items-start lg:items-center">
-    <div class="w-full lg:w-[500px]">
+    <div class="w-full md:w-[600px] lg:w-[500px]">
       <img [src]="country().flags.png" alt="" class="rounded-md w-full lg:h-[390px] object-fill">
     </div>
     <div class="lg:ml-14 xl:ml-32 mt-8 lg:mt-0">
@@ -52,11 +55,11 @@
         </div>
       </div>
       @if (getBorders() !== null) {
-        <div class="flex flex-col lg:flex-row mt-8 items-start">
+        <div class="flex flex-col lg:flex-row mt-8 items-start lg:items-center">
           <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Border Countries:</p>
-          <div class="lg:ml-2 grid grid-cols-2 gap-2 items-start  sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-row lg:items-center">
+          <div class="lg:ml-2 grid grid-cols-2 gap-2 items-start  sm:grid-cols-3 xl:flex xl:flex-row xl:items-center">
             @for (border of getBorders(); track $index) {
-              <a [routerLink]="['/country', border]" class="shadow-lg w-28 py-2  text-center dark:bg-dark-blue"> {{border}}</a>
+              <a [routerLink]="['/country', border]" class="shadow-lg w-28 py-2  text-center dark:bg-dark-blue hover:scale-105 duration-300 transition-scale ease"> {{border}}</a>
             }
           </div>
         </div>

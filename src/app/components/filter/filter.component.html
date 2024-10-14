@@ -10,6 +10,9 @@
   @if (isFilterByRegionsMenuOpen) {
     <div id="dropdown" class="absolute w-[200px] z-10  px-5 mt-2 bg-white divide-y divide-gray-100 rounded-md shadow dark:bg-dark-blue dark:text-white hover:scale-105 duration-300 transition-scale ease">
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <li>
+          <a routerLink="/">All</a>
+        </li>
         @for (region of regions | keyvalue; track $index) {
           <li class="text-dark-blue mb-2 dark:text-white hover:scale-105 duration-300 transition-scale ease">
             <a [routerLink]="['/region', region.value]">
