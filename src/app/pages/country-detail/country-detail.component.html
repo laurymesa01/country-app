@@ -56,7 +56,7 @@
           <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Border Countries:</p>
           <div class="lg:ml-2 grid grid-cols-2 gap-2 items-start  sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-row lg:items-center">
             @for (border of getBorders(); track $index) {
-              <p class="shadow-lg w-28 py-2  text-center dark:bg-dark-blue"> {{border}}</p>
+              <a [routerLink]="['/country', border]" class="shadow-lg w-28 py-2  text-center dark:bg-dark-blue"> {{border}}</a>
             }
           </div>
         </div>

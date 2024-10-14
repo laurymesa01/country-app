@@ -1,4 +1,4 @@
-<form class="mx-auto w-full md:w-[450px] lg:w-[500px]" (submit)="searchCountryByName()">
+<form class="mx-auto w-full md:w-[450px] lg:w-[500px] hover:scale-105 duration-300 transition-scale ease" (submit)="searchCountryByName()">
   <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
   <div class="relative ">
       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -12,7 +12,7 @@
               (keyup)="keyPressed()"
               type="search"
               id="default-search"
-              class="block w-full p-4 ps-10 text-sm shadow-xl rounded-lg appearance-none focus:border-none  focus:outline-none placeholder:text-[14px] placeholder:leading-[20px] placeholder:text-[#848484] dark:bg-dark-blue dark:placeholder:text-white dark:text-white"
+              class="block w-full p-4 ps-10 text-sm shadow-xl rounded-lg appearance-none focus:border-none  focus:outline-none  placeholder:text-[14px] placeholder:leading-[20px] placeholder:text-[#848484] dark:bg-dark-blue dark:placeholder:text-white dark:text-white"
               placeholder="Search for a country..."
               required />
   </div>

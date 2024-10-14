@@ -1,14 +1,15 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Country, Region, Name, Status, Side, StartOfWeek } from '../../models/country.model';
+import { Country, Region, Status, Side, StartOfWeek } from '../../models/country.model';
 import { switchMap } from 'rxjs';
 import { CountryService } from '../../services/country.service';
 import { Location } from "@angular/common";
+import { RouterLinkWithHref } from "@angular/router";
 
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLinkWithHref],
   templateUrl: './country-detail.component.html',
   styleUrl: './country-detail.component.scss'
 })
