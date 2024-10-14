@@ -1,0 +1,31 @@
+[debug] [2024-10-14T19:37:55.380Z] ----------------------------------------------------------------------
+[debug] [2024-10-14T19:37:55.389Z] Command:       /home/laura/.nvm/versions/node/v20.13.1/bin/node /home/laura/.nvm/versions/node/v20.13.1/bin/firebase deploy
+[debug] [2024-10-14T19:37:55.390Z] CLI Version:   13.22.0
+[debug] [2024-10-14T19:37:55.390Z] Platform:      linux
+[debug] [2024-10-14T19:37:55.390Z] Node Version:  v20.13.1
+[debug] [2024-10-14T19:37:55.390Z] Time:          Mon Oct 14 2024 14:37:55 GMT-0500 (Central Daylight Time)
+[debug] [2024-10-14T19:37:55.390Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-14T19:37:55.464Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-14T19:37:55.464Z] > authorizing via signed-in user (mesafernandezlauraelena@gmail.com)
+[debug] [2024-10-14T19:37:55.464Z] [iam] checking project rest-countries-23310 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-14T19:37:55.465Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.466Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.467Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/rest-countries-23310:testIamPermissions [none]
+[debug] [2024-10-14T19:37:55.467Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/rest-countries-23310:testIamPermissions x-goog-quota-user=projects/rest-countries-23310
+[debug] [2024-10-14T19:37:55.467Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rest-countries-23310:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-14T19:37:55.695Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/rest-countries-23310:testIamPermissions 200
+[debug] [2024-10-14T19:37:55.696Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rest-countries-23310:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-14T19:37:55.698Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.698Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.699Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rest-countries-23310 [none]
+[debug] [2024-10-14T19:37:55.949Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rest-countries-23310 200
+[debug] [2024-10-14T19:37:55.949Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rest-countries-23310 {"projectId":"rest-countries-23310","projectNumber":"1089163099833","displayName":"rest-countries","name":"projects/rest-countries-23310","resources":{"hostingSite":"rest-countries-23310"},"state":"ACTIVE","etag":"1_1959e77b-b888-4afe-9cc1-746263a3942c"}
+[info] 
+[info] === Deploying to 'rest-countries-23310'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-10-14T19:37:55.969Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.969Z] Checked if tokens are valid: true, expires at: 1728937633447
+[debug] [2024-10-14T19:37:55.970Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rest-countries-23310/versions [none]
+[debug] [2024-10-14T19:37:55.970Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/rest-countries-23310/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
