@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostBinding, Input, OnInit, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
 import { SearchComponent } from "../../components/search/search.component";
@@ -13,7 +13,30 @@ import { CountryService } from '../../services/country.service';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
-export class LayoutComponent {
+export class LayoutComponent{
+
+  @HostBinding('class.dark') get mode() { return this.darkMode(); }
+
+  darkMode = signal<boolean>(false);
+
+  constructor(){
+    if (typeof window !== "undefined") {
+      this.darkMode.set(JSON.parse(window.localStorage.getItem("darkMode") ?? "false"))
+      if (this.darkMode() === true) {
+        // this.checked = true;
+      }
+      effect(() => {
+        window.localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+      });
+    }
+  }
+
+  changeMode(event: boolean){
+    this.darkMode.set(event);
+    console.log(this.darkMode());
+
+    // window.localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+  }
 
 
 }

@@ -1,5 +1,5 @@
-<section class="bg-white p-4 md:p-14 xl:p-20">
-  <button class="mb-8 px-6 py-2 lg:mb-20 text-[16px] leading-[20px] font-light shadow-md lg:shadow-none" (click)="back()">
+<section class="bg-white p-4 md:p-14 xl:p-20 dark:bg-very-dark-blue-light dark:text-white">
+  <button class="mb-8 px-6 py-2 lg:mb-20 text-[16px] leading-[20px] font-light shadow-md rounded-md lg:shadow-none dark:bg-dark-blue dark:px-6 dark:py-2 dark:text-white" (click)="back()">
     Back
   </button>
   <div class="flex flex-col lg:flex-row items-start lg:items-center">
@@ -56,7 +56,7 @@
           <p class="font-extrabold text-[14px] lg:text-[16px] leading-[32px]">Border Countries:</p>
           <div class="lg:ml-2 grid grid-cols-2 gap-2 items-start  sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-row lg:items-center">
             @for (border of getBorders(); track $index) {
-              <p class="shadow-lg w-28 py-2  text-center"> {{border}}</p>
+              <p class="shadow-lg w-28 py-2  text-center dark:bg-dark-blue"> {{border}}</p>
             }
           </div>
         </div>
