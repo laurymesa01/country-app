@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { Country } from '../models/country.model';
+import { Country, Region } from '../models/country.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

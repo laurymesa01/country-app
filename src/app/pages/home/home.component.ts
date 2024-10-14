@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { CountryService } from '../../services/country.service';
-import { Country } from '../../models/country.model';
+import { Country, Region } from '../../models/country.model';
 import { CountryCardComponent } from "../../components/country-card/country-card.component";
 import { ActivatedRoute } from '@angular/router';
 import {  switchMap } from 'rxjs';
@@ -17,12 +17,14 @@ import { ErrorMessageComponent } from "../../components/error-message/error-mess
 })
 export class HomeComponent implements OnInit{
 
-  @Input() region: string = '';
+  // @Input() region: string = '';
 
   isError: boolean = false;
   errorMessage!: HttpErrorResponse;
   private country_service = inject(CountryService);
   countries = signal<Country[]>([]);
+  filteredCountries = signal<Country[]>([]);
+  region = signal<Region>(Region.Asia);
 
   constructor(private route: ActivatedRoute,){}
 
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit{
     this.route.params.pipe(
       switchMap(params => {
         if (params['region']) {
+          this.region.set(params['region'])
           return this.country_service.getCountriesByRegion(params['region']);
         }
         else{
@@ -37,7 +40,10 @@ export class HomeComponent implements OnInit{
         }
       })
     ).subscribe({
-      next: (countries) => this.countries.set(countries),
+      next: (countries) => {
+        this.countries.set(countries)
+        this.filteredCountries.set(countries)
+      },
       error: (err: HttpErrorResponse) => {
         this.isError = true;
         this.errorMessage = err;
@@ -47,13 +53,12 @@ export class HomeComponent implements OnInit{
 
   searchCountry(name: string){
     if (name && name.length != 0) {
-      this.country_service.getCountriesByName(name).subscribe({
-        next: countries => this.countries.set(countries),
-        error: (err: HttpErrorResponse) => {
-          this.isError = true;
-          this.errorMessage = err;
-        }
-      })
+      let countries: Country[] = [];
+      countries = this.countries().filter(country => country.name.official.toLowerCase().includes(name.toLowerCase()));
+      this.filteredCountries.set(countries)
+    }
+    else{
+      this.filteredCountries.set(this.countries())
     }
 
   }
